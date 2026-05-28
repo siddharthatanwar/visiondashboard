@@ -703,6 +703,7 @@ input,textarea,select{font-family:var(--font-b)}
   <button class="tab-btn" data-tab="personal">🎯 Personal <span class="tab-cnt" id="tc-personal">0</span></button>
   <button class="tab-btn" data-tab="learning">📚 Learning <span class="tab-cnt" id="tc-learning">0</span></button>
   <button class="tab-btn" data-tab="language">🇩🇪 German <span class="tab-cnt" id="tc-language">0</span></button>
+  <button class="tab-btn" data-tab="goals">🌟 Life Goals <span class="tab-cnt" id="tc-goals">0</span></button>
 </div>
 
 <!-- GRIDS -->
@@ -710,6 +711,7 @@ input,textarea,select{font-family:var(--font-b)}
 <div class="tab-content" id="tab-personal"><div class="cards-sec"><div class="cards-grid" id="grid-personal"></div></div></div>
 <div class="tab-content" id="tab-learning"><div class="cards-sec"><div class="cards-grid" id="grid-learning"></div></div></div>
 <div class="tab-content" id="tab-language"><div class="cards-sec"><div class="cards-grid" id="grid-language"></div></div></div>
+<div class="tab-content" id="tab-goals"><div class="cards-sec"><div class="cards-grid" id="grid-goals"></div></div></div>
 
 <!-- DETAIL PANEL -->
 <div class="dp-overlay" id="dpOverlay"></div>
@@ -749,6 +751,7 @@ input,textarea,select{font-family:var(--font-b)}
         <select class="fs" id="fTab">
           <option value="business">💡 Business</option><option value="personal">🎯 Personal</option>
           <option value="learning">📚 Learning</option><option value="language">🇩🇪 German</option>
+          <option value="goals">🌟 Life Goals</option>
         </select>
       </div>
       <div class="fg"><label class="fl">Status</label>
@@ -851,8 +854,8 @@ input,textarea,select{font-family:var(--font-b)}
 /* ================================================================
    CONSTANTS & HELPERS
    ================================================================ */
-const SK='visionDB_v4';
-const TABS=['business','personal','learning','language'];
+const SK='visionDB_v5';
+const TABS=['business','personal','learning','language','goals'];
 const STLBL={not_started:'Not Started',in_progress:'In Progress',completed:'Completed'};
 const PRLBL={high:'High',medium:'Medium',low:'Low'};
 const SECS=[
@@ -948,11 +951,191 @@ const DEFS=[
      {id:'l2',topic:'Easy German Podcast',cat:'listening',minutes:20,score:7,note:'Episode about Berlin. Understood ~70%.',ts:new Date('2026-04-22T11:00').getTime()}
    ],
    calYear:2026,calMonth:3}
-];
+  ,
 
-/* ================================================================
-   STATE
-   ================================================================ */
+  /* ================================================================
+     LIFE GOALS TAB — 7 new cards
+     ================================================================ */
+
+  {id:'g1',tab:'goals',title:'PhD — Doctorate Journey',description:'Pursue a PhD in Computer Science / AI / Education Technology. Build deep academic expertise and contribute original research to the field.',status:'not_started',priority:'high',progress:5,
+   sections:{
+     features:['Identify target universities & supervisors','Research proposal writing','Clear NET/JRF qualification','Publish 2+ research papers before applying','Secure research funding / fellowship'],
+     new_features:['Explore international PhD programs (Germany, Canada)','Industry-sponsored PhD options'],
+     spikes:['Part-time PhD vs full-time PhD feasibility','Online PhD programs — validity check','BITS Pilani Work Integrated PhD'],
+     research:['Top CS PhD programs in India: IITs, IISc, NITs','UGC NET JRF is mandatory for most Indian PhD admissions','Fellowship: CSIR JRF ₹31,000/month + HRA','PhD duration: 3–5 years minimum'],
+     results:[],
+     market:[]
+   },
+   costs:{dev:0,marketing:0,infra:0,misc:200000},
+   notes:'Long-term vision. Start with NET qualification first. Explore part-time options given current work commitments.',
+   timelines:[
+     {id:'t1',title:'NET Qualification',desc:'Clear UGC NET Computer Science',date:'2026-12-31',status:'upcoming',emoji:'📝'},
+     {id:'t2',title:'Research Topic Finalized',desc:'Zero in on thesis area: AI testing / EdTech',date:'2027-06-30',status:'upcoming',emoji:'🔬'},
+     {id:'t3',title:'PhD Application',desc:'Apply to top 5 programs',date:'2027-12-31',status:'upcoming',emoji:'📨'},
+     {id:'t4',title:'PhD Enrollment',desc:'Begin doctoral program',date:'2028-06-30',status:'upcoming',emoji:'🎓'},
+     {id:'t5',title:'PhD Completion',desc:'Thesis submission and defense',date:'2032-12-31',status:'upcoming',emoji:'🏆'}
+   ],
+   subcards:[
+     {id:'s1',title:'Research Paper Writing',desc:'Academic writing skills',cat:'custom',emoji:'✍️',progress:5,notes:'Start reading 2 papers/week in target domain.'},
+     {id:'s2',title:'NET Exam Prep',desc:'UGC NET CS Paper 1 & 2',cat:'custom',emoji:'📖',progress:0,notes:''},
+     {id:'s3',title:'University Shortlisting',desc:'IIT, IISc, NIT target list',cat:'custom',emoji:'🏛️',progress:10,notes:'IIT Bombay, IIT Delhi, IISc on radar.'}
+   ],
+   studiedDays:[],logEntries:[],calYear:2026,calMonth:3},
+
+  {id:'g2',tab:'goals',title:'NET Exam — UGC Qualification',description:'Clear UGC NET in Computer Science to qualify for PhD admission and Assistant Professor eligibility. JRF rank is bonus target.',status:'not_started',priority:'high',progress:0,
+   sections:{
+     features:['Paper 1: Teaching & Research Aptitude','Paper 2: Computer Science & Applications','Mock test practice — 100+ papers','Weak area analysis and focused revision','Time management under exam conditions'],
+     new_features:['JRF rank for fellowship stipend','State-level SET exam as backup'],
+     spikes:['NET June vs NET December — which to target first','Best study material: NTA official vs coaching notes'],
+     research:['NET CS syllabus: Data Structures, Algorithms, OS, DBMS, Networks, AI/ML','Paper 1 is generic — 50 MCQs, 2 hours','Paper 2 is CS specific — 100 MCQs, 2 hours','Passing: 40% aggregate for General category'],
+     results:[],
+     market:[]
+   },
+   costs:{dev:0,marketing:0,infra:0,misc:15000},
+   notes:'December 2026 exam is the first realistic target. Study 2 hours daily minimum.',
+   timelines:[
+     {id:'t1',title:'Syllabus Coverage',desc:'Complete entire NET CS syllabus',date:'2026-09-30',status:'upcoming',emoji:'📚'},
+     {id:'t2',title:'Mock Test Phase',desc:'50 full mock tests with analysis',date:'2026-11-15',status:'upcoming',emoji:'📝'},
+     {id:'t3',title:'NET Exam — Dec 2026',desc:'Appear and clear NET/JRF',date:'2026-12-31',status:'upcoming',emoji:'🎯'},
+     {id:'t4',title:'Result & Certification',desc:'Receive NET/JRF certificate',date:'2027-03-31',status:'upcoming',emoji:'🏅'}
+   ],
+   subcards:[
+     {id:'s1',title:'Paper 1 Prep',desc:'Teaching aptitude, research methods',cat:'custom',emoji:'🧠',progress:0,notes:''},
+     {id:'s2',title:'Data Structures & Algo',desc:'Core CS topic',cat:'custom',emoji:'🌳',progress:0,notes:''},
+     {id:'s3',title:'AI/ML Topics',desc:'NET CS Paper 2 AI section',cat:'custom',emoji:'🤖',progress:10,notes:'Already have base from work.'},
+     {id:'s4',title:'Mock Tests',desc:'Practice papers and analysis',cat:'custom',emoji:'📊',progress:0,notes:''}
+   ],
+   studiedDays:[],logEntries:[],calYear:2026,calMonth:3},
+
+  {id:'g3',tab:'goals',title:'Professor — State University',description:'Become an Assistant Professor at a state university in Computer Science. Combine academic teaching with research and real-world industry experience.',status:'not_started',priority:'medium',progress:3,
+   sections:{
+     features:['Clear NET/SET qualification','PhD enrollment or completion','Build publication record','Teaching experience — guest lectures first','Apply to state university vacancies'],
+     new_features:['Online teaching platforms as stepping stone (NPTEL, Coursera)','Industry-academia bridge role'],
+     spikes:['State university vs central university preference','Contractual vs permanent positions'],
+     research:['Assistant Professor eligibility: NET + 55% Masters','Pay scale: ₹57,700–1,82,400 (7th CPC, Level 10)','Reservation policy varies by state','Guest faculty → contract → permanent track'],
+     results:[],
+     market:[]
+   },
+   costs:{dev:0,marketing:0,infra:0,misc:50000},
+   notes:'Long-term goal post-PhD. Industry experience is a competitive advantage in CS departments. Start with guest lectures.',
+   timelines:[
+     {id:'t1',title:'NET Qualification',desc:'Mandatory for professorship',date:'2026-12-31',status:'upcoming',emoji:'📝'},
+     {id:'t2',title:'Guest Lectures',desc:'Volunteer at local colleges',date:'2027-06-30',status:'upcoming',emoji:'🎤'},
+     {id:'t3',title:'PhD Enrollment',desc:'Begin doctoral program',date:'2028-06-30',status:'upcoming',emoji:'🎓'},
+     {id:'t4',title:'First Publication',desc:'Peer-reviewed paper published',date:'2028-12-31',status:'upcoming',emoji:'📄'},
+     {id:'t5',title:'Professor Application',desc:'Apply to state university vacancies',date:'2030-06-30',status:'upcoming',emoji:'🏛️'}
+   ],
+   subcards:[
+     {id:'s1',title:'Academic CV Building',desc:'Publications, certifications',cat:'custom',emoji:'📄',progress:5,notes:''},
+     {id:'s2',title:'Teaching Skills',desc:'Pedagogy and curriculum design',cat:'custom',emoji:'🎤',progress:10,notes:'Study effective teaching methods.'}
+   ],
+   studiedDays:[],logEntries:[],calYear:2026,calMonth:3},
+
+  {id:'g4',tab:'goals',title:'DevOps — Engineering Excellence',description:'Build strong DevOps capabilities: CI/CD pipelines, infrastructure as code, cloud operations, SRE practices. Combine with current automation expertise.',status:'in_progress',priority:'high',progress:25,
+   sections:{
+     features:['Docker & Kubernetes mastery','GitHub Actions + Jenkins pipelines','AWS DevOps tools: CodePipeline, CodeBuild, ECS','Terraform / Infrastructure as Code','Monitoring: Prometheus, Grafana, CloudWatch'],
+     new_features:['GitOps with ArgoCD','Platform Engineering skills','FinOps — cloud cost optimization'],
+     spikes:['Kubernetes vs ECS for small teams','Terraform vs CDK for AWS infra'],
+     research:['DevOps Engineer avg salary India: ₹12–25 LPA','AWS DevOps Professional cert is gold standard','SRE role is bridge between Dev and Ops','DORA metrics: deployment frequency, lead time, MTTR, change failure rate'],
+     results:['GitHub Actions pipeline built for test automation','AWS basics completed','Docker fundamentals done'],
+     market:['Competitors: Cloud engineers, Platform engineers','Target companies: Product startups, FAANG GICs']
+   },
+   costs:{dev:0,marketing:0,infra:5000,misc:20000},
+   notes:'Natural extension of current SDET skills. CI/CD is already part of daily work — go deeper into infra side.',
+   timelines:[
+     {id:'t1',title:'Docker + K8s Basics',desc:'Complete Kubernetes for developers course',date:'2026-07-31',status:'current',emoji:'🐳'},
+     {id:'t2',title:'AWS DevOps Professional',desc:'Pass AWS DevOps Pro certification',date:'2026-12-31',status:'upcoming',emoji:'☁️'},
+     {id:'t3',title:'Terraform IaC',desc:'Build real infra with Terraform',date:'2027-03-31',status:'upcoming',emoji:'🏗️'},
+     {id:'t4',title:'First DevOps Role',desc:'Land a DevOps/SRE position',date:'2027-06-30',status:'upcoming',emoji:'🚀'}
+   ],
+   subcards:[
+     {id:'s1',title:'Docker & Kubernetes',desc:'Container orchestration',cat:'custom',emoji:'🐳',progress:30,notes:'Docker basics done. K8s in progress.'},
+     {id:'s2',title:'AWS DevOps Tools',desc:'CodePipeline, CodeBuild, ECS',cat:'custom',emoji:'☁️',progress:25,notes:'CodePipeline done. ECS next.'},
+     {id:'s3',title:'Terraform',desc:'Infrastructure as Code',cat:'custom',emoji:'🏗️',progress:10,notes:'Started HashiCorp learn path.'},
+     {id:'s4',title:'Monitoring Stack',desc:'Prometheus, Grafana',cat:'custom',emoji:'📊',progress:5,notes:''}
+   ],
+   studiedDays:['2026-04-19','2026-04-21','2026-04-22'],
+   logEntries:[{id:'l1',topic:'Kubernetes Pods & Deployments',cat:'custom',minutes:60,score:8,note:'Completed K8s basics module. Deployments and services clear.',ts:new Date('2026-04-21T19:00').getTime()}],
+   calYear:2026,calMonth:3},
+
+  {id:'g5',tab:'goals',title:'Product Manager with System Design',description:'Develop strong Product Management capabilities combined with deep system design knowledge. Bridge technical depth with product thinking to lead engineering-heavy products.',status:'not_started',priority:'medium',progress:8,
+   sections:{
+     features:['Product thinking: user stories, PRDs, roadmaps','System design fundamentals: scalability, databases, APIs','Metrics & analytics: DAU, retention, funnel analysis','Stakeholder management and communication','A/B testing and experimentation frameworks'],
+     new_features:['AI product management skills','Platform product management'],
+     spikes:['PM vs TPM — which path fits better given tech background','MBA vs self-learning for PM transition'],
+     research:['PM salary India: ₹15–40 LPA at product companies','Technical PM is highly valued — 30% premium over non-tech PM','System design knowledge differentiates senior PMs','Resources: Lenny\'s Newsletter, Reforge, Shreyas Doshi'],
+     results:['Basic PRD writing practiced','Completed 1 system design course'],
+     market:['Target: B2B SaaS, Fintech, EdTech product companies','Competitors: MBAs, ex-engineers']
+   },
+   costs:{dev:0,marketing:0,infra:0,misc:30000},
+   notes:'Technical background is a huge advantage. Focus on product thinking + communication skills. System design is already partially there.',
+   timelines:[
+     {id:'t1',title:'System Design Mastery',desc:'Complete system design interview prep',date:'2026-09-30',status:'upcoming',emoji:'🏗️'},
+     {id:'t2',title:'PM Fundamentals',desc:'Complete PM course (Reforge / PM School)',date:'2026-12-31',status:'upcoming',emoji:'📋'},
+     {id:'t3',title:'Side Project as PM',desc:'Launch a small product and own roadmap',date:'2027-06-30',status:'upcoming',emoji:'🚀'},
+     {id:'t4',title:'First PM Role',desc:'Transition to Technical PM position',date:'2027-12-31',status:'upcoming',emoji:'🎯'}
+   ],
+   subcards:[
+     {id:'s1',title:'System Design',desc:'Scalability, DBs, APIs, caching',cat:'custom',emoji:'🏗️',progress:15,notes:'Read System Design Interview book.'},
+     {id:'s2',title:'PRD Writing',desc:'Product requirement documents',cat:'custom',emoji:'📋',progress:10,notes:'Practiced 2 PRDs.'},
+     {id:'s3',title:'Product Analytics',desc:'Metrics, funnels, A/B testing',cat:'custom',emoji:'📊',progress:5,notes:''},
+     {id:'s4',title:'User Research',desc:'Interviews, surveys, empathy maps',cat:'custom',emoji:'🔍',progress:0,notes:''}
+   ],
+   studiedDays:[],logEntries:[],calYear:2026,calMonth:3},
+
+  {id:'g6',tab:'goals',title:'OSD — Government Service (Group A)',description:'Qualify for Officer on Special Duty (OSD) or equivalent Group A gazetted government post through UPSC / State PSC. Serve in a high-impact administrative or technical capacity.',status:'not_started',priority:'medium',progress:2,
+   sections:{
+     features:['UPSC CSE / State PSC preparation','General Studies: History, Geography, Polity, Economy','CSAT: Aptitude and reasoning','Optional subject selection — Computer Science or Public Administration','Essay and answer writing practice'],
+     new_features:['UPSC IES — Indian Engineering Services (CS/IT)','State technical services exams'],
+     spikes:['UPSC CSE vs IES — which is more aligned','OSD appointment route: direct exam vs internal promotion','Part-time preparation feasibility'],
+     research:['OSD posts are typically Group A gazetted officers','UPSC IES CS/IT: Engineering Services Exam — technical route','IES salary: ₹56,100 starting + allowances (Level 10)','State technical services have separate exams per state'],
+     results:[],
+     market:[]
+   },
+   costs:{dev:0,marketing:0,infra:0,misc:100000},
+   notes:'Long-term aspiration. IES (Indian Engineering Services) is the most realistic technical route. Start with CSAT basics alongside NET prep — overlapping syllabus.',
+   timelines:[
+     {id:'t1',title:'Exam Route Decision',desc:'Finalize UPSC IES vs State PSC',date:'2026-09-30',status:'upcoming',emoji:'🗺️'},
+     {id:'t2',title:'Syllabus Study Begins',desc:'Dedicated 1hr daily study',date:'2027-01-01',status:'upcoming',emoji:'📚'},
+     {id:'t3',title:'Prelims Attempt',desc:'First attempt at chosen exam',date:'2027-12-31',status:'upcoming',emoji:'📝'},
+     {id:'t4',title:'Mains Qualification',desc:'Clear mains and interview round',date:'2028-12-31',status:'upcoming',emoji:'🏛️'},
+     {id:'t5',title:'OSD / IES Posting',desc:'Receive posting order',date:'2029-06-30',status:'upcoming',emoji:'🎖️'}
+   ],
+   subcards:[
+     {id:'s1',title:'CSAT Preparation',desc:'Aptitude and reasoning',cat:'custom',emoji:'🧮',progress:0,notes:'Overlaps with NET Paper 1.'},
+     {id:'s2',title:'General Studies',desc:'Polity, Economy, History',cat:'custom',emoji:'🌏',progress:0,notes:''},
+     {id:'s3',title:'IES Technical Paper',desc:'CS/IT engineering subjects',cat:'custom',emoji:'💻',progress:5,notes:'Overlaps with NET CS Paper 2.'}
+   ],
+   studiedDays:[],logEntries:[],calYear:2026,calMonth:3},
+
+  {id:'g7',tab:'goals',title:'Circle of Positive Environment',description:'Intentionally build and nurture a circle of positive, growth-oriented people around me — mentors, peers, friends, and family who inspire, support, and challenge me to grow.',status:'in_progress',priority:'high',progress:20,
+   sections:{
+     features:['Identify and connect with 3 mentors in tech/academia','Join 2 active communities: tech + personal growth','Weekly check-ins with close growth circle','Eliminate or limit energy-draining relationships','Annual review of relationships and their impact'],
+     new_features:['Mastermind group of 4–6 peers','Online community contribution — give back'],
+     spikes:['Online vs offline community building','How to approach and maintain mentor relationships'],
+     research:['You are the average of the 5 people you spend most time with — Jim Rohn','Research shows social environment is the #1 predictor of long-term behavior change','Mentorship accelerates career growth by 2–5 years on average'],
+     results:['Identified 2 potential mentors in tech field','Joined 1 Slack community for SDETs'],
+     market:[]
+   },
+   costs:{dev:0,marketing:0,infra:0,misc:10000},
+   notes:'This is not just networking — it is intentional life curation. Quality over quantity. One right mentor > 100 LinkedIn connections.',
+   timelines:[
+     {id:'t1',title:'Mentor Circle',desc:'Establish 2 active mentor relationships',date:'2026-07-31',status:'current',emoji:'🤝'},
+     {id:'t2',title:'Peer Group',desc:'Form a mastermind group of 4–5 peers',date:'2026-09-30',status:'upcoming',emoji:'👥'},
+     {id:'t3',title:'Community Contribution',desc:'Actively give back — speak, write, help',date:'2026-12-31',status:'upcoming',emoji:'🌱'},
+     {id:'t4',title:'Annual Circle Review',desc:'Assess and refresh relationships',date:'2027-04-24',status:'upcoming',emoji:'🔄'}
+   ],
+   subcards:[
+     {id:'s1',title:'Tech Mentors',desc:'Senior engineers / architects',cat:'custom',emoji:'🧑‍💻',progress:20,notes:'2 LinkedIn connections identified. Need to formalize.'},
+     {id:'s2',title:'Academic Mentors',desc:'Professors / researchers',cat:'custom',emoji:'🎓',progress:5,notes:'Will connect after NET prep starts.'},
+     {id:'s3',title:'Community Presence',desc:'Online + offline communities',cat:'custom',emoji:'🌐',progress:25,notes:'Active in 1 SDET Slack. Join 1 more.'},
+     {id:'s4',title:'Family Circle',desc:'Quality time and open communication',cat:'custom',emoji:'❤️',progress:40,notes:'Scheduling dedicated family time weekly.'},
+     {id:'s5',title:'Peer Mastermind',desc:'4–6 growth-oriented peers',cat:'custom',emoji:'💡',progress:10,notes:'Identifying candidates.'}
+   ],
+   studiedDays:['2026-04-20','2026-04-22'],
+   logEntries:[{id:'l1',topic:'Mentor Outreach',cat:'custom',minutes:30,score:7,note:'Reached out to 2 senior engineers on LinkedIn. One replied!',ts:new Date('2026-04-22T18:00').getTime()}],
+   calYear:2026,calMonth:3}
+];
 let S={cards:[],activeTab:'business',search:'',fStatus:'',fPriority:''};
 let editCardId=null, openCardId=null, openPane='overview';
 
